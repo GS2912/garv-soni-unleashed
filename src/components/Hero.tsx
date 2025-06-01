@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Github, Linkedin, Twitter } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Instagram, Youtube, X } from "lucide-react";
 
 export const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -11,16 +11,23 @@ export const Hero = () => {
     <section className="pt-32 pb-20 px-4">
       <div className="container mx-auto text-center">
         <div className="max-w-4xl mx-auto">
+          <div className="mb-8 animate-fade-in">
+            <img 
+              src="/lovable-uploads/14e50bf2-0665-431d-8e8e-a2481e122a73.png" 
+              alt="Garv Soni" 
+              className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto object-cover border-4 border-white shadow-2xl"
+            />
+          </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent animate-fade-in">
             Relentless Self-Improver
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             Software Engineer • Entrepreneur • Co-founder of{' '}
-            <a href="https://tacl.io" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 font-semibold underline decoration-blue-300 hover:decoration-blue-500 transition-colors">
+            <a href="https://tacl.io" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 font-semibold underline decoration-blue-300 hover:decoration-blue-500 transition-colors">
               Tacl.io
             </a>
           </p>
-          <p className="text-lg text-gray-700 mb-10 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <p className="text-lg text-gray-700 dark:text-gray-300 mb-10 max-w-3xl mx-auto animate-fade-in" style={{ animationDelay: '0.4s' }}>
             Just like Rock Lee, I believe in the power of pure effort—no shortcuts, no excuses, just the will to keep improving. 
             I document my journey building products, breaking barriers, and pushing limits to inspire others to level up constantly.
           </p>
@@ -35,21 +42,24 @@ export const Hero = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3"
+              className="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-400 dark:hover:text-white px-8 py-3"
               onClick={() => scrollToSection('contact')}
             >
               Get In Touch
             </Button>
           </div>
           <div className="flex items-center justify-center gap-6 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-            <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors transform hover:scale-110">
-              <Github size={24} />
+            <a href="#" className="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors transform hover:scale-110">
+              <Instagram size={24} />
             </a>
-            <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors transform hover:scale-110">
+            <a href="#" className="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors transform hover:scale-110">
               <Linkedin size={24} />
             </a>
-            <a href="#" className="text-gray-600 hover:text-blue-600 transition-colors transform hover:scale-110">
-              <Twitter size={24} />
+            <a href="#" className="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors transform hover:scale-110">
+              <Youtube size={24} />
+            </a>
+            <a href="#" className="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors transform hover:scale-110">
+              <X size={24} />
             </a>
           </div>
         </div>

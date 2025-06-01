@@ -10,18 +10,21 @@ import { FeaturedWork } from "@/components/FeaturedWork";
 import { BlogSection } from "@/components/BlogSection";
 import { Contact } from "@/components/Contact";
 import { Navigation } from "@/components/Navigation";
+import { ThemeProvider } from "@/hooks/useTheme";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
-      <Navigation />
-      <Hero />
-      <About />
-      <Skills />
-      <FeaturedWork />
-      <BlogSection />
-      <Contact />
-    </div>
+    <ThemeProvider defaultTheme="light" storageKey="garv-theme">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        <Navigation />
+        <Hero />
+        <About />
+        <Skills />
+        <FeaturedWork />
+        <BlogSection />
+        <Contact />
+      </div>
+    </ThemeProvider>
   );
 };
 
