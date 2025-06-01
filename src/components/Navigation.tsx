@@ -24,6 +24,9 @@ export const Navigation = () => {
             <button onClick={() => scrollToSection('about')} className="text-gray-600 hover:text-blue-600 transition-colors">
               About
             </button>
+            <button onClick={() => scrollToSection('skills')} className="text-gray-600 hover:text-blue-600 transition-colors">
+              Skills
+            </button>
             <button onClick={() => scrollToSection('work')} className="text-gray-600 hover:text-blue-600 transition-colors">
               Work
             </button>
@@ -50,6 +53,9 @@ export const Navigation = () => {
             <div className="flex flex-col space-y-4 pt-4">
               <button onClick={() => scrollToSection('about')} className="text-left text-gray-600 hover:text-blue-600 transition-colors">
                 About
+              </button>
+              <button onClick={() => scrollToSection('skills')} className="text-left text-gray-600 hover:text-blue-600 transition-colors">
+                Skills
               </button>
               <button onClick={() => scrollToSection('work')} className="text-left text-gray-600 hover:text-blue-600 transition-colors">
                 Work

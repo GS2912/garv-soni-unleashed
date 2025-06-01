@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, ExternalLink, Code, Zap, Target, Users } from "lucide-react";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
+import { Skills } from "@/components/Skills";
 import { FeaturedWork } from "@/components/FeaturedWork";
 import { BlogSection } from "@/components/BlogSection";
 import { Contact } from "@/components/Contact";
@@ -16,6 +17,7 @@ const Index = () => {
       <Navigation />
       <Hero />
       <About />
+      <Skills />
       <FeaturedWork />
       <BlogSection />
       <Contact />
