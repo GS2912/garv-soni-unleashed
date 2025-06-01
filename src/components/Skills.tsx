@@ -2,7 +2,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Code, Dumbbell, Users, ChevronRight, Database, Brain, Cpu, Globe, Server, Layers, FileCode, Zap } from "lucide-react";
+import { Code, Dumbbell, Users, ChevronRight } from "lucide-react";
 
 type SkillCategory = 'tech' | 'fitness' | 'leadership';
 
@@ -12,21 +12,21 @@ const skillsData = {
     icon: Code,
     gradient: "from-blue-500 to-cyan-500",
     skills: [
-      { name: "Java", level: 90, icon: "☕", bgColor: "from-orange-500 to-red-500" },
-      { name: "Python", level: 88, icon: "🐍", bgColor: "from-blue-500 to-yellow-500" },
-      { name: "JavaScript", level: 92, icon: "JS", bgColor: "from-yellow-400 to-yellow-600" },
-      { name: "TypeScript", level: 89, icon: "TS", bgColor: "from-blue-600 to-blue-800" },
-      { name: "PostgreSQL", level: 85, icon: "🐘", bgColor: "from-blue-700 to-blue-900" },
-      { name: "MongoDB", level: 83, icon: "🍃", bgColor: "from-green-600 to-green-800" },
-      { name: "React.js", level: 94, icon: "⚛️", bgColor: "from-cyan-400 to-cyan-600" },
-      { name: "Next.js", level: 87, icon: "▲", bgColor: "from-gray-700 to-black" },
-      { name: "Kubernetes", level: 78, icon: "☸️", bgColor: "from-blue-500 to-purple-600" },
-      { name: "Machine Learning", level: 82, icon: "🤖", bgColor: "from-purple-500 to-pink-500" },
-      { name: "Deep Learning", level: 80, icon: "🧠", bgColor: "from-indigo-500 to-purple-700" },
-      { name: "PyTorch", level: 81, icon: "🔥", bgColor: "from-orange-600 to-red-600" },
-      { name: "TensorFlow", level: 79, icon: "📊", bgColor: "from-orange-500 to-yellow-500" },
-      { name: "AI Agents", level: 85, icon: "🤖", bgColor: "from-emerald-500 to-teal-600" },
-      { name: "MCP", level: 83, icon: "🔗", bgColor: "from-slate-600 to-slate-800" }
+      { name: "Java", imagePlaceholder: "/placeholder-java-logo.png", bgColor: "from-orange-500 to-red-500" },
+      { name: "Python", imagePlaceholder: "/placeholder-python-logo.png", bgColor: "from-blue-500 to-yellow-500" },
+      { name: "JavaScript", imagePlaceholder: "/placeholder-js-logo.png", bgColor: "from-yellow-400 to-yellow-600" },
+      { name: "TypeScript", imagePlaceholder: "/placeholder-ts-logo.png", bgColor: "from-blue-600 to-blue-800" },
+      { name: "PostgreSQL", imagePlaceholder: "/placeholder-postgresql-logo.png", bgColor: "from-blue-700 to-blue-900" },
+      { name: "MongoDB", imagePlaceholder: "/placeholder-mongodb-logo.png", bgColor: "from-green-600 to-green-800" },
+      { name: "React.js", imagePlaceholder: "/placeholder-react-logo.png", bgColor: "from-cyan-400 to-cyan-600" },
+      { name: "Next.js", imagePlaceholder: "/placeholder-nextjs-logo.png", bgColor: "from-gray-700 to-black" },
+      { name: "Kubernetes", imagePlaceholder: "/placeholder-kubernetes-logo.png", bgColor: "from-blue-500 to-purple-600" },
+      { name: "Machine Learning", imagePlaceholder: "/placeholder-ml-logo.png", bgColor: "from-purple-500 to-pink-500" },
+      { name: "Deep Learning", imagePlaceholder: "/placeholder-dl-logo.png", bgColor: "from-indigo-500 to-purple-700" },
+      { name: "PyTorch", imagePlaceholder: "/placeholder-pytorch-logo.png", bgColor: "from-orange-600 to-red-600" },
+      { name: "TensorFlow", imagePlaceholder: "/placeholder-tensorflow-logo.png", bgColor: "from-orange-500 to-yellow-500" },
+      { name: "AI Agents", imagePlaceholder: "/placeholder-ai-agents-logo.png", bgColor: "from-emerald-500 to-teal-600" },
+      { name: "MCP", imagePlaceholder: "/placeholder-mcp-logo.png", bgColor: "from-slate-600 to-slate-800" }
     ]
   },
   fitness: {
@@ -46,13 +46,13 @@ const skillsData = {
     icon: Users,
     gradient: "from-purple-500 to-pink-500",
     skills: [
-      { name: "Communication", level: 92 },
-      { name: "Team Building", level: 88 },
-      { name: "Collaboration", level: 90 },
-      { name: "Problem Solving", level: 95 },
-      { name: "Time Management", level: 89 },
-      { name: "Adaptability", level: 91 },
-      { name: "Critical Thinking", level: 93 }
+      { name: "Communication" },
+      { name: "Team Building" },
+      { name: "Collaboration" },
+      { name: "Problem Solving" },
+      { name: "Time Management" },
+      { name: "Adaptability" },
+      { name: "Critical Thinking" }
     ]
   }
 };
@@ -86,7 +86,7 @@ export const Skills = () => {
   ];
 
   const renderTechSkills = () => (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
       {skillsData.tech.skills.map((skill, index) => (
         <div
           key={skill.name}
@@ -95,23 +95,28 @@ export const Skills = () => {
           }`}
           style={{ transitionDelay: `${index * 100}ms` }}
         >
-          <Card className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-none bg-gradient-to-br from-blue-50 to-cyan-50 hover:from-blue-100 hover:to-cyan-100 dark:from-gray-800 dark:to-gray-700 dark:hover:from-gray-700 dark:hover:to-gray-600">
-            <CardContent className="p-4 text-center">
-              <div className={`w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-r ${skill.bgColor} flex items-center justify-center text-white font-bold text-lg shadow-lg`}>
-                {skill.icon}
-              </div>
-              <div className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2">{skill.name}</div>
-              <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2 mb-2">
-                <div 
-                  className="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full transition-all duration-1000 ease-out"
-                  style={{ 
-                    width: isVisible ? `${skill.level}%` : '0%',
-                    transitionDelay: `${index * 150}ms`
+          <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-none bg-white dark:bg-gray-800/50 hover:bg-gray-50 dark:hover:bg-gray-700/50 backdrop-blur-sm">
+            <CardContent className="p-6 text-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300">
+                <img 
+                  src={skill.imagePlaceholder} 
+                  alt={`${skill.name} logo`}
+                  className="w-10 h-10 object-contain"
+                  onError={(e) => {
+                    // Fallback to a simple icon if image fails to load
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.nextElementSibling?.classList.remove('hidden');
                   }}
                 />
+                <div className="hidden w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
+                  {skill.name.charAt(0)}
+                </div>
               </div>
-              <Badge variant="secondary" className="text-xs bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
-                {skill.level}%
+              <div className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                {skill.name}
+              </div>
+              <Badge variant="secondary" className="text-xs bg-blue-50 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300 border-none">
+                Proficient
               </Badge>
             </CardContent>
           </Card>
@@ -149,7 +154,7 @@ export const Skills = () => {
   );
 
   const renderLeadershipSkills = () => (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {skillsData.leadership.skills.map((skill, index) => (
         <div
           key={skill.name}
@@ -158,27 +163,17 @@ export const Skills = () => {
           }`}
           style={{ transitionDelay: `${index * 150}ms` }}
         >
-          <Card className="group hover:shadow-lg transition-all duration-300 border-none bg-gradient-to-br from-purple-50 to-pink-50 hover:from-purple-100 hover:to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 dark:hover:from-purple-800/30 dark:hover:to-pink-800/30">
+          <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border-none bg-gradient-to-br from-purple-50 to-pink-50 hover:from-purple-100 hover:to-pink-100 dark:from-purple-900/20 dark:to-pink-900/20 dark:hover:from-purple-800/30 dark:hover:to-pink-800/30">
             <CardContent className="p-6">
               <div className="flex items-center justify-between mb-4">
-                <h4 className="font-semibold text-gray-800 dark:text-gray-200">{skill.name}</h4>
+                <h4 className="font-semibold text-gray-800 dark:text-gray-200 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                  {skill.name}
+                </h4>
                 <ChevronRight className="text-purple-500 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </div>
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-600 dark:text-gray-400">Proficiency</span>
-                  <span className="font-medium text-purple-600 dark:text-purple-400">{skill.level}%</span>
-                </div>
-                <div className="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-3">
-                  <div 
-                    className="bg-gradient-to-r from-purple-500 to-pink-500 h-3 rounded-full transition-all duration-1000 ease-out"
-                    style={{ 
-                      width: isVisible ? `${skill.level}%` : '0%',
-                      transitionDelay: `${index * 200}ms`
-                    }}
-                  />
-                </div>
-              </div>
+              <Badge variant="secondary" className="text-xs bg-purple-50 text-purple-700 dark:bg-purple-900/50 dark:text-purple-300 border-none">
+                Expert
+              </Badge>
             </CardContent>
           </Card>
         </div>
