@@ -2,22 +2,17 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Github, Linkedin, Instagram, Youtube, X } from "lucide-react";
 
+// Removes the profile image from here; image is now animated above.
 export const Hero = () => {
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section className="pt-32 pb-20 px-4">
+    <section className="pt-10 pb-20 px-4">
       <div className="container mx-auto text-center">
         <div className="max-w-4xl mx-auto">
-          <div className="mb-8 animate-fade-in">
-            <img 
-              src="/lovable-uploads/14e50bf2-0665-431d-8e8e-a2481e122a73.png" 
-              alt="Garv Soni" 
-              className="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto object-cover border-4 border-white shadow-2xl"
-            />
-          </div>
+          {/* Profile image moved out for animation */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent animate-fade-in">
             Relentless Self-Improver
           </h1>
